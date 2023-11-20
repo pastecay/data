@@ -53,7 +53,7 @@ class GoodIfrit:
     def __init__(self, height, name, goodness):
         self.height = height
         self.name = name
-        self.goodness = max(0, goodness)  # Доброта не может быть отрицательной
+        self.goodness = max(0, goodness)  
 
     def change_goodness(self, value):
         self.goodness = max(0, self.goodness + value)
@@ -90,6 +90,17 @@ class GoodIfrit:
     def __ne__(self, other):
         return not self.__eq__(other)
 
+gi1 = GoodIfrit(10, "Ifrit1", 5)
+gi2 = GoodIfrit(8, "Ifrit2", 7)
+
+gi1.change_goodness(2)
+print(gi1)  # Вывод: Good Ifrit Ifrit1, height 10, goodness 7
+
+gi3 = gi1 + 3
+print(gi3)  # Вывод: Good Ifrit Ifrit1, height 13, goodness 7
+
+result = gi1(15)
+print(result) 
 
 class Wizard:
     def __init__(self, name, rating, age_looks):
